@@ -1,75 +1,37 @@
-# React + TypeScript + Vite
+# 📈 Crypto Market Analytics Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time, interactive cryptocurrency market tracker and visualizer built with **React**, **AG Grid**, and **Highcharts**. This dashboard provides real-time market overviews, interactive time-series price charts, asset comparisons, and custom watchlists.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+* **Interactive Market Table**: Built with AG Grid v33 supporting pagination, sorting, search filtering, and custom cell renderers (sparklines, change indicators, watchlist toggles).
+* **Detailed Asset Analysis**: Interactive area charts powered by Highcharts featuring range selection (`24H`, `7D`, `1M`, `1Y`) and price level indicators.
+* **Multi-Asset Performance Comparison**: Compare performance trends across up to 8 top cryptocurrencies over a 7-day period.
+* **CSV Export**: Export filtered market data directly to CSV with raw formatted figures.
+* **Light / Dark Mode Support**: Adaptive color schemes with dynamic theme token syncing across AG Grid and Highcharts.
+* **Watchlist Management**: Pin favorite tokens locally to quickly isolate and track watched assets.
+* **Resilient API Handling**: Local fallback mechanism for rate limits (`429 Too Many Requests`) and mock data backstops.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Frontend Framework**: [React 18](https://react.dev/) (with Vite)
+* **Data Grid**: [AG Grid Community](https://www.ag-grid.com/) (v33+)
+* **Charting Engine**: [Highcharts](https://www.highcharts.com/) & `highcharts-react-official`
+* **HTTP Client**: [Axios](https://axios-http.com/)
+* **Market Data Source**: CoinGecko API (with built-in fallback/caching)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
 
-```
+Ensure you have Node.js (v18.0.0 or higher) and npm installed.
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+```bash
+node -v
+npm -v
